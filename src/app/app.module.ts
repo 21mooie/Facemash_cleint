@@ -5,7 +5,7 @@ import {MatButtonModule, MatInputModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
@@ -24,6 +24,7 @@ const routes = [
   imports: [
     BrowserModule, HttpModule, MatButtonModule, MatCardModule, 
     MatToolbarModule, RouterModule.forRoot(routes),
+    FormsModule,
     MatInputModule,
     BrowserAnimationsModule
   ],

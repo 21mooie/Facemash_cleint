@@ -7,8 +7,14 @@ export class ApiService{
     constructor (private http: Http) {}
 
     getMessages() {
-        this.http.get('http://127.0.0.1:3000/posts').subscribe(res =>{
+        this.http.get('http://localhost:3000/posts').subscribe(res =>{
             this.messages=res.json();
+        })
+    }
+
+    sendUserRegisration(registerData) {
+        this.http.post('http://localhost:3000/register',registerData).subscribe(res =>{
+
         })
     }
 }

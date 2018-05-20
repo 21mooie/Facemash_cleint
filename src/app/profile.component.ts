@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'profile',
@@ -14,6 +15,9 @@ import { ApiService } from './api.service'
         <mat-list>
             <mat-list-item>Name: Tim</mat-list-item>
         </mat-list>
+        <mat-list>
+            <mat-list-item>Email: {{profile?.email}}</mat-list-item>
+        </mat-list>
       </mat-card-content>
     </mat-card>
   `,
@@ -21,5 +25,12 @@ import { ApiService } from './api.service'
 export class ProfileComponent {
   loginData = {}
 
-  constructor( private apiService: ApiService) {}
+  constructor( private apiService: ApiService, private route: ActivatedRoute) {}
+
+    profile
+
+    ngOnInit() {
+      var id = this.route.snapshot.params.id;
+      this.apiService.getProfile(id).subscribe(data => this.profile=data.json());
+    }
 }

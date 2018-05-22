@@ -18,7 +18,8 @@ import { LoginComponent } from './login.component';
 import { UsersComponent } from './users.component';
 import { ProfileComponent } from './profile.component';
 import { Profile } from 'selenium-webdriver/firefox';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './authInterceptor.service'
 
 const routes = [
   {path: '', component: PostComponent},
@@ -42,7 +43,10 @@ const routes = [
     BrowserAnimationsModule,
     MatListModule
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, 
+    {provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

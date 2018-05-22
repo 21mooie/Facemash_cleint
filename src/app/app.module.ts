@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { MatListModule } from '@angular/material';
 
+import { PostComponent} from './post.component';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
@@ -20,6 +21,7 @@ import { ProfileComponent } from './profile.component';
 import { Profile } from 'selenium-webdriver/firefox';
 
 const routes = [
+  {path: '', component: PostComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'users', component: UsersComponent},
@@ -29,7 +31,8 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent, MessagesComponent , RegisterComponent,
-    LoginComponent, UsersComponent, ProfileComponent
+    LoginComponent, UsersComponent, ProfileComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule, HttpModule, MatButtonModule, MatCardModule, 

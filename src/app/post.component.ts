@@ -26,4 +26,10 @@ import { ApiService } from './api.service'
 })
 export class PostComponent {
   constructor( private apiService: ApiService) {}
+
+  postMsg=''
+
+  post(){
+    this.apiService.postMessages({msg: this.postMsg});
+  }
 }

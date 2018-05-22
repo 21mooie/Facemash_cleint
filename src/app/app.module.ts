@@ -12,13 +12,13 @@ import { PostComponent} from './post.component';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
-import { HttpModule } from '@angular/http';
 import { MessagesComponent } from './messages.component'
 import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { UsersComponent } from './users.component';
 import { ProfileComponent } from './profile.component';
 import { Profile } from 'selenium-webdriver/firefox';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes = [
   {path: '', component: PostComponent},
@@ -35,7 +35,7 @@ const routes = [
     PostComponent
   ],
   imports: [
-    BrowserModule, HttpModule, MatButtonModule, MatCardModule, 
+    BrowserModule, HttpClientModule, MatButtonModule, MatCardModule, 
     MatToolbarModule, RouterModule.forRoot(routes),
     FormsModule,
     MatInputModule,
